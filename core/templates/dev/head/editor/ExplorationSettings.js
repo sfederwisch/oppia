@@ -139,6 +139,10 @@ oppia.controller('ExplorationSettings', [
     explorationWarningsService.updateWarnings();
   };
 
+  $scope.saveParamObjectType = function() {
+    explorationParamSpecsService.saveDisplayedValue();
+  };
+
   // TODO(sll): Modify this so that it works correctly when discarding changes
   // to the default skin id.
   $scope.$watch('$parent.defaultSkinId', function(newValue, oldValue) {

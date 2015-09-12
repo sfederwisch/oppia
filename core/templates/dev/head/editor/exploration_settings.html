@@ -356,7 +356,10 @@
         </div>
         <ol>
           <li ng-repeat="(paramName, paramSpecValue) in explorationParamSpecsService.savedMemento">
-            <b><[paramName]></b> (<[paramSpecValue.obj_type]>)
+            <b><[paramName]></b>
+            <br>Type:
+            <select id="paramObjectType" class="form-control" ng-model="explorationParamSpecsService.displayed[paramName].obj_type" ng-change="saveParamObjectType()" ng-options="paramType for paramType in explorationParamSpecsService.getAllValidParameterTypes()">
+            </select>
           </li>
         </ol>
       </div>

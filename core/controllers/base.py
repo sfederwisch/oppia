@@ -390,6 +390,7 @@ class BaseHandler(webapp2.RequestHandler):
                 SIDEBAR_MENU_ADDITIONAL_LINKS.value),
             'SOCIAL_MEDIA_BUTTONS': SOCIAL_MEDIA_BUTTONS.value,
             'user_is_logged_in': bool(self.username),
+            'VALID_PARAMETER_TYPES': feconf.VALID_PARAMETER_TYPES,
         })
 
         if 'meta_name' not in values:

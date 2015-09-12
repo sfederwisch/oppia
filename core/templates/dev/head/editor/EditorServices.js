@@ -565,6 +565,9 @@ oppia.factory('explorationParamSpecsService', [
     'explorationPropertyService', function(explorationPropertyService) {
   var child = Object.create(explorationPropertyService);
   child.propertyName = 'param_specs';
+  child.getAllValidParameterTypes = function() {
+    return GLOBALS.VALID_PARAMETER_TYPES;
+  };
   child._isValid = function(value) {
     return true;
   };

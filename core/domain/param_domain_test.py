@@ -19,6 +19,8 @@
 __author__ = 'Sean Lip'
 
 from core.domain import param_domain
+import feconf
+import re
 import test_utils
 import utils
 
@@ -33,10 +35,10 @@ class ParameterDomainUnitTests(test_utils.GenericTestBase):
                 TypeError, '\'FakeType\' is not a valid object class.'):
             param_spec.validate()
 
-        param_spec.obj_type = 'Real'
+        param_spec.obj_type = 'Null'
         with self.assertRaisesRegexp(
-                utils.ValidationError, 'Only \'UnicodeString\' is the '
-                'supported object type for parameters, not: Real'):
+                utils.ValidationError, 'Only %s are supported object types '
+                'for parameters, not: Null' % re.escape(str(feconf.VALID_PARAMETER_TYPES))):
             param_spec.validate()
 
         # Restore a valid parameter spec.
